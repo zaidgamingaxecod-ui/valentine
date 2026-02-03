@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Saniya ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+.container {
+  text-align: center;
+  transition: opacity 1s ease;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Button area FIXED */
+.buttons {
+  position: relative;
+  width: 320px;
+  height: 140px;
+  margin: auto;
+}
+
+#yesBtn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+#noBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+}
+
+/* Romantic scene */
+.scene {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #2b1055, #000);
+  overflow: hidden;
+}
+
+/* Decorations */
+.decor {
+  position: absolute;
+  font-size: 30px;
+  opacity: 0.85;
+}
+
+.envelope {
+  width: 230px;
+  height: 150px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  border-radius: 6px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 115px solid transparent;
+  border-right: 115px solid transparent;
+  border-top: 75px solid #ff4d6d;
+}
+
+.letter {
+  width: 220px;
+  background: #fffdf7;
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  display: none;
+  padding: 16px;
+  text-align: center;
+  font-size: 1.05rem;
+  border: 2px solid #ff4d6d;
+  border-radius: 10px;
+  animation: slideUp 1s forwards;
+}
+
+.letter h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 6px;
+  color: #ff4d6d;
+}
+
+.letter a {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.95rem;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(-100px); opacity: 1; }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+for (let i = 0; i < 24; i++) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDelay = Math.random() * 6 + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+<div class="container" id="main">
+  <h1>Saniya, will you be my Valentine? 💖</h1>
+  <div class="buttons" id="btnBox">
+    <button id="yesBtn">YES</button>
+    <button id="noBtn">NO</button>
+  </div>
+</div>
+
+<div class="scene" id="scene">
+
+  <div class="decor" style="top:10%; left:12%;">🌹</div>
+  <div class="decor" style="top:18%; right:14%;">🍫</div>
+  <div class="decor" style="bottom:16%; left:10%;">🧸</div>
+  <div class="decor" style="bottom:20%; right:12%;">🌹</div>
+
+  <div class="envelope" id="envelope">
+    <div class="letter" id="letter">
+      💌<br><br>
+      <strong>I knew it, Saniya.</strong><br>
+      I love you ❤️
+
+      <h3>Way to my heart ↓</h3>
+      <a href="https://www.instagram.com/habibi.razzaq/" target="_blank">
+        Visit my Instagram
+      </a>
+    </div>
+  </div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="sahiba.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const box = document.getElementById("btnBox");
+
+const texts = [
+  "NO","why?","please","think again","come on",
+  "don’t do this","just say yes","I’m begging",
+  "you know you want to","be honest",
+  "this is fate","give me a chance",
+  "almost there","say it","last chance",
+  "pleaseee","still no?"
+];
+
+let count = 0;
+
+noBtn.addEventListener("click", () => {
+  const boxRect = box.getBoundingClientRect();
+  const btnRect = noBtn.getBoundingClientRect();
+
+  const maxX = boxRect.width - btnRect.width;
+  const maxY = boxRect.height - btnRect.height;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  if (count < texts.length - 1) count++;
+  noBtn.innerText = texts[count];
+});
+
+document.getElementById("yesBtn").addEventListener("click", () => {
+  document.getElementById("main").style.opacity = "0";
+  document.getElementById("bgMusic").play();
+
+  setTimeout(() => {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("scene").style.display = "flex";
+  }, 1000);
+});
+
+document.getElementById("envelope").addEventListener("click", () => {
+  document.getElementById("letter").style.display = "block";
+});
+</script>
+
+</body>
+</html>
